@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "rsvps": {
+      ".read": "auth != null && auth.token.email == 'hosts@jonathanandabbey.com'",
+      ".indexOn": ["ts"],
+      "$id": {
+        ".write": "(!data.exists() && newData.exists()) || (auth != null && auth.token.email == 'hosts@jonathanandabbey.com')",
+        ".validate": "newData.hasChildren(['name', 'attending', 'count', 'ts'])",
+        "name":      { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 80" },
+        "attending": { ".validate": "newData.isBoolean()" },
+        "count":     { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 10 && newData.val() % 1 == 0" },
+        "guests": {
+          "$i":      { ".validate": "$i.matches(/^[0-9]$/) && newData.isString() && newData.val().length > 0 && newData.val().length <= 80" }
+        },
+        "contact":   { ".validate": "newData.isString() && newData.val().length <= 120" },
+        "address":   { ".validate": "newData.isString() && newData.val().length <= 300" },
+        "note":      { ".validate": "newData.isString() && newData.val().length <= 500" },
+        "ts":        { ".validate": "newData.val() == now" },
+        "$other":    { ".validate": false }
+      }
+    }
+  }
+}

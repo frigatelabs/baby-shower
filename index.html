@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Luncheon Shower for Abbey Matthews</title>
+<meta name="description" content="Margot Alice is on her way Saturday, January 9, 2027 in Boca Raton. Details, RSVP and registry.">
+<!-- Link previews (iMessage, WhatsApp, Facebook, email) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="A Luncheon Shower for Abbey Matthews">
+<meta property="og:description" content="Margot Alice is on her way Saturday, January 9 · Boca Raton. Tap to RSVP.">
+<meta property="og:url" content="https://baby.jonathanandabbey.com/">
+<meta property="og:image" content="https://baby.jonathanandabbey.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Watercolor invitation: A Luncheon Shower celebrating Abbey Matthews">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FBF6EF">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+</head>
+<body>
+
+<div class="garland"><img src="art/garland.jpg" alt="" width="2000" height="408"></div>
+
+<main class="wrap">
+  <header class="invite">
+    <p class="lead" id="lead"></p>
+    <p class="celebrating">celebrating</p>
+    <h1 class="honoree" id="honoree"></h1>
+    <p class="tagline" id="tagline"></p>
+    <div class="facts">
+      <p class="key date" id="date"></p>
+      <p class="key time" id="time"></p>
+      <p class="subtext venue" id="venue"></p>
+      <p class="key town" id="town"></p>
+      <p class="subtext hosts" id="hosts"></p>
+    </div>
+    <a class="btn primary cta" href="#rsvp">RSVP</a>
+  </header>
+
+  <div class="painting"><img src="art/sconset.jpg" alt="Watercolor of a rose-covered cottage lane in 'Sconset, Nantucket, with a dachshund trotting toward you, bunnies in the hydrangeas and Sankaty Head Lighthouse in the distance" width="1600" height="1085"></div>
+
+  <section class="details" aria-labelledby="h-details">
+    <h2 id="h-details">The details</h2>
+    <div class="facts">
+      <div class="key addr" id="addr"></div>
+    </div>
+    <div class="btn-row">
+      <a class="btn" id="dir" target="_blank" rel="noopener">Directions</a>
+      <button class="btn" type="button" id="cal">Add to calendar</button>
+    </div>
+    <p class="small-link" id="gcal-wrap"><a id="gcal" target="_blank" rel="noopener">Use Google Calendar instead</a></p>
+    <ul class="notes hidden" id="notes"></ul>
+  </section>
+
+  <section aria-labelledby="h-registry">
+    <img class="shell" src="art/shells.png" alt="">
+    <h2 id="h-registry">Registry</h2>
+    <p class="lede">Your company is the best gift. If you'd like to bring something for Margot, here's what Abbey and Jonathan have picked out.</p>
+    <a class="btn" id="registry-btn" target="_blank" rel="noopener"></a>
+  </section>
+
+  <section id="rsvp" aria-labelledby="h-rsvp">
+    <img class="shell" src="art/shells.png" alt="">
+    <h2 id="h-rsvp">Kindly reply</h2>
+    <p class="sub" id="rsvpby"></p>
+
+    <div class="card">
+      <div id="already" class="hidden" style="text-align:center">
+        <p style="margin-top:0">You've already replied as <strong id="already-name"></strong>.</p>
+        <button class="btn" type="button" id="rsvp-again">Reply for someone else</button>
+      </div>
+
+      <form id="rsvp-form" novalidate>
+        <div class="field">
+          <label class="lbl" for="name">Your full name</label>
+          <input type="text" id="name" maxlength="80" autocomplete="name" placeholder="First and last name">
+        </div>
+        <fieldset class="field">
+          <legend class="lbl">Will you attend?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="attending" value="yes"><span>Joyfully accepts</span></label>
+            <label class="choice"><input type="radio" name="attending" value="no"><span>Regretfully declines</span></label>
+          </div>
+        </fieldset>
+
+        <div id="yes-fields" class="hidden">
+          <div class="field">
+            <label class="lbl" for="count">How many in your party?</label>
+            <select id="count"></select>
+          </div>
+          <div id="guest-names"></div>
+          <div class="field">
+            <label class="lbl" for="contact">Email or phone <span class="opt">So we can send a reminder the week before</span></label>
+            <input type="text" id="contact" maxlength="120" autocomplete="email" placeholder="you@email.com or (561) 555-0123">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="lbl" for="address">Mailing address <span class="opt">For thank-you notes</span></label>
+          <textarea id="address" maxlength="300" rows="3" autocomplete="street-address" placeholder="Street, city, state, ZIP"></textarea>
+        </div>
+        <div class="field">
+          <label class="lbl" for="note">A note for Abbey <span class="opt">Optional</span></label>
+          <textarea id="note" maxlength="500" placeholder="Well wishes for Abbey and Margot"></textarea>
+        </div>
+        <div class="hp" aria-hidden="true"><label>Leave blank <input type="text" id="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn primary wide" type="submit" id="submit">Send reply</button>
+        <p class="err hidden" id="err" role="alert"></p>
+      </form>
+
+      <div id="done" class="done hidden" role="status">
+        <img class="shell" src="art/shells.png" alt="">
+        <h3 id="done-title"></h3>
+        <p id="done-msg"></p>
+      </div>
+
+      <p class="demo hidden" id="demo">Preview mode: Firebase isn't connected yet, so replies aren't saved.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img class="mono" src="art/monogram.jpg" alt="Margot Alice Matthews monogram" width="700" height="656">
+  <p>We can't wait to celebrate with you.</p>
+  <a href="https://jonathanandabbey.com">jonathanandabbey.com</a>
+</footer>
+
+<script>
+(function(){
+  const E = window.SHOWER, FB = window.SHOWER_FIREBASE;
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const soon = t => `<span class="soon">${t}</span>`;
+  const store = {
+    get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set(k,v){ try { localStorage.setItem(k,v); } catch(e){} },
+  };
+  const ord = n => n + (n % 100 >= 11 && n % 100 <= 13 ? "th" : ({1:"st",2:"nd",3:"rd"}[n % 10] || "th"));
+  const parts = (d, tz) => Object.fromEntries(new Intl.DateTimeFormat("en-US", {weekday:"long", month:"long", day:"numeric", year:"numeric", hour:"numeric", minute:"2-digit", hourCycle:"h23", timeZone:tz}).formatToParts(d).map(p => [p.type, p.value]));
+  const clock = p => { const h = +p.hour % 12 || 12; return p.minute === "00" ? h + " o'clock" : h + ":" + p.minute; };
+  const period = p => +p.hour < 12 ? "in the morning" : +p.hour < 17 ? "in the afternoon" : "in the evening";
+
+  // Invitation text
+  $("lead").innerHTML = `${esc(E.inviteLead)}<br>${esc(E.title.toLowerCase())}`;
+  $("honoree").textContent = E.celebrating;
+  E.tagline ? $("tagline").textContent = E.tagline : $("tagline").remove();
+  E.hostedBy ? $("hosts").textContent = E.hostedBy.replace(" and ", " & ") : $("hosts").remove();
+  const details = `${E.title} celebrating ${E.celebrating}. ${E.hostedBy || ""}. Details & RSVP: ${E.siteUrl}`;
+
+  // When / where
+  const start = new Date(E.start), end = E.end ? new Date(E.end) : new Date(start.getTime() + 3*3600e3);
+  const tz = E.timeZone, lines = E.addressLines || [];
+  const where = [E.venueName ? "Home of " + E.venueName.replace(/^the home of /i, "") : null, ...lines].filter(Boolean).join(", ");
+  const p = parts(start, tz);
+  const dayText = `${p.weekday}, ${p.month} ${+p.day}`;
+  $("date").textContent = `${dayText}, ${p.year}`;
+  $("time").textContent = E.end ? `${clock(p)} to ${clock(parts(end, tz))} ${period(parts(end, tz))}` : `${clock(p).replace(" o'clock", ":00")} ${period(p)}`;
+  E.venueName ? $("venue").textContent = "at " + E.venueName : $("venue").remove();
+  $("addr").innerHTML = lines.map(l => `<p>${esc(l)}</p>`).join("");
+  lines.length ? $("town").textContent = lines[lines.length - 1].replace(/\s+\d{5}(-\d{4})?$/, "") : $("town").remove();
+
+  const z = dt => dt.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const title = `${E.title} for ${E.celebrating}`;
+  const gcal = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(title)
+    + "&dates=" + z(start) + "/" + z(end) + "&details=" + encodeURIComponent(details) + "&location=" + encodeURIComponent(where);
+  const isAndroid = /android/i.test(navigator.userAgent), isApple = /iphone|ipad|ipod|macintosh/i.test(navigator.userAgent);
+  $("gcal").href = gcal;
+  if (isAndroid) $("gcal-wrap").remove();
+  $("cal").onclick = () => {
+    if (isAndroid) return window.open(gcal, "_blank");
+    const x = s => String(s).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
+    const ics = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//jonathanandabbey//shower//EN","CALSCALE:GREGORIAN","BEGIN:VEVENT",
+      "UID:shower-" + z(start) + "@jonathanandabbey.com","DTSTAMP:" + z(new Date()),"DTSTART:" + z(start),"DTEND:" + z(end),
+      "SUMMARY:" + x(title),"LOCATION:" + x(where),"DESCRIPTION:" + x(details),"URL:" + E.siteUrl,
+      "BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY","DESCRIPTION:" + x(title + " is tomorrow"),"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([ics], {type:"text/calendar"}));
+    a.download = "luncheon-shower.ics"; document.body.appendChild(a); a.click(); a.remove();
+  };
+  const q = encodeURIComponent(E.mapQuery || where);
+  $("dir").href = isApple ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps/search/?api=1&query=${q}`;
+
+  // RSVP-by
+  if (E.rsvpBy) {
+    const [y,m,d] = E.rsvpBy.split("-").map(Number);
+    const by = new Date(y, m-1, d);
+    $("rsvpby").textContent = "Please reply by " + new Intl.DateTimeFormat("en-US",{weekday:"long", month:"long", day:"numeric"}).format(by);
+  } else { $("rsvpby").remove(); }
+
+  // Notes
+  if (E.notes && E.notes.length) { $("notes").innerHTML = E.notes.map(n => `<li>${esc(n)}</li>`).join(""); $("notes").classList.remove("hidden"); }
+
+  // Registry
+  const rb = $("registry-btn");
+  if (E.registryUrl) { rb.href = E.registryUrl; rb.textContent = "View the registry"; }
+  else { rb.textContent = "Registry coming soon"; rb.setAttribute("aria-disabled","true"); rb.removeAttribute("href"); }
+
+  // RSVP form
+  const form = $("rsvp-form"), countSel = $("count");
+  for (let i = 1; i <= (E.maxPartySize || 6); i++) countSel.add(new Option(i === 1 ? "Just me" : i + " people, including me", i));
+  const renderGuests = () => {
+    const n = +countSel.value, box = $("guest-names"), keep = [...box.querySelectorAll("input")].map(i => i.value);
+    let h = "";
+    for (let i = 2; i <= n; i++) h += `<div class="field"><label class="lbl" for="g${i}">Guest ${i} full name</label><input type="text" id="g${i}" maxlength="80" placeholder="First and last name" value="${esc(keep[i-2] || "")}"></div>`;
+    box.innerHTML = h;
+  };
+  countSel.addEventListener("change", renderGuests);
+  form.addEventListener("change", e => {
+    if (e.target.name === "attending") $("yes-fields").classList.toggle("hidden", e.target.value !== "yes");
+  });
+
+  const demo = !FB || !FB.apiKey || FB.apiKey.startsWith("PASTE");
+  if (demo) $("demo").classList.remove("hidden");
+
+  let dbPromise = null;
+  const getDb = () => dbPromise || (dbPromise = (async () => {
+    const base = "https://www.gstatic.com/firebasejs/10.12.2/";
+    const [{initializeApp}, db] = await Promise.all([import(base+"firebase-app.js"), import(base+"firebase-database.js")]);
+    return { db: db.getDatabase(initializeApp(FB)), ...db };
+  })());
+
+  const prev = store.get("shower_rsvp_name");
+  if (prev) { $("already-name").textContent = prev; $("already").classList.remove("hidden"); form.classList.add("hidden"); }
+  $("rsvp-again").onclick = () => {
+    $("already").classList.add("hidden"); $("done").classList.add("hidden");
+    form.reset(); form.classList.remove("hidden"); $("yes-fields").classList.add("hidden"); $("guest-names").innerHTML = ""; $("name").focus();
+  };
+
+  const fail = (msg, el) => { $("err").textContent = msg; $("err").classList.remove("hidden"); if (el) el.focus(); };
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    $("err").classList.add("hidden");
+    const name = $("name").value.trim().slice(0, 80);
+    const att = form.querySelector("input[name=attending]:checked");
+    if (!name) return fail("Add your full name so the hosts know who's replying.", $("name"));
+    if (!att) return fail("Choose whether you'll attend.");
+    const attending = att.value === "yes";
+    const rec = { name, attending, count: attending ? +countSel.value : 0 };
+    if (attending) {
+      const guests = [...$("guest-names").querySelectorAll("input")].map(i => i.value.trim().slice(0, 80));
+      const missing = guests.findIndex(g => !g);
+      if (missing > -1) return fail(`Add Guest ${missing + 2}'s full name for the gate list.`, $("g" + (missing + 2)));
+      if (guests.length) rec.guests = guests;
+      const contact = $("contact").value.trim().slice(0, 120);
+      if (contact) rec.contact = contact;
+    }
+    const address = $("address").value.trim().slice(0, 300);
+    if (address) rec.address = address;
+    const note = $("note").value.trim().slice(0, 500);
+    if (note) rec.note = note;
+
+    const done = () => {
+      store.set("shower_rsvp_name", name);
+      form.classList.add("hidden");
+      $("done-title").textContent = attending ? "Thank you!" : "We'll miss you";
+      $("done-msg").textContent = attending
+        ? `We have you down for ${rec.count === 1 ? "1 guest" : rec.count + " guests"}.` + (dayText ? ` See you ${dayText}.` : "")
+        : "Thank you for letting us know.";
+      $("done").classList.remove("hidden");
+    };
+
+    if ($("website").value) return done();   // honeypot: bots get a fake success
+    if (demo) return done();
+
+    const btn = $("submit"); btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      const { db, ref, push, serverTimestamp } = await getDb();
+      rec.ts = serverTimestamp();
+      await push(ref(db, "rsvps"), rec);
+      done();
+    } catch (err) {
+      console.error(err);
+      fail("Your reply didn't send. Check your connection and try again, or text Jonathan.");
+    } finally {
+      btn.disabled = false; btn.textContent = "Send reply";
+    }
+  });
+})();
+</script>
+</body>
+</html>

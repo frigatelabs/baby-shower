@@ -1,0 +1,237 @@
+:root{
+  --cream:#FBF6EF;
+  --paper:#FFFDF9;
+  --ink:#3D3236;        /* warm plum-charcoal */
+  --ink-soft:#76676C;
+  --mauve:#B98A9A;      /* gingham + rules */
+  --mauve-deep:#8E5F70; /* buttons, links */
+  --blush:#EFDDE0;
+  --script:"Pinyon Script", "Snell Roundhand", cursive;
+  --serif:"Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); font-family:var(--serif); font-weight:500; font-size:20px; line-height:1.5;
+  background-color:var(--cream);
+  /* faint paper tooth */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .35 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:600px; margin:0 auto; padding:0 clamp(18px, 6vw, 28px)}
+
+/* ── Hero: the invitation */
+.garland{max-width:980px; margin:0 auto; padding:10px 6px 0}
+.garland img{display:block; width:100%; height:auto; mix-blend-mode:multiply}
+.invite{text-align:center; padding:26px 0 60px}
+.painting{margin:4px -16px 0; mix-blend-mode:multiply}
+.painting img{display:block; width:100%; height:auto; mix-blend-mode:multiply}
+.caps{font-weight:600; font-size:14px; letter-spacing:.2em; text-transform:uppercase; line-height:1.9; margin:0}
+h1{font-family:var(--script); font-weight:400; font-size:clamp(28px,7.6vw,38px); line-height:1.15; margin:6px 0 6px; color:var(--ink)}
+.celebrating{font-style:italic; font-size:21px; margin:0}
+.honoree{font-weight:600; font-size:clamp(23px,6.8vw,34px); line-height:1.15; letter-spacing:.14em; text-transform:uppercase; margin:4px 0 0}
+.tagline{font-family:var(--script); font-size:clamp(23px,6.2vw,28px); color:var(--mauve-deep); margin:12px 0 0; line-height:1.3}
+.rule{width:56px; height:1px; background:var(--mauve); margin:34px auto}
+.at{font-style:italic; margin:18px 0 0}
+.venue{font-family:var(--script); font-size:32px; line-height:1.2; margin:2px 0 4px}
+.hosts{font-style:italic; color:var(--ink-soft); margin:14px 0 0}
+.facts p{margin:0; font-size:21px; line-height:1.4}
+.facts .date{font-weight:600; font-size:23px}
+.facts .venue{font-family:var(--serif); font-style:italic; font-size:18px; color:var(--ink-soft); margin-top:14px}
+.facts .hosts{margin-top:16px; font-size:18px}
+.invite .cta{margin-top:32px; min-width:220px}
+.small-link{margin:14px 0 0; font-size:17px}
+.small-link a{color:var(--mauve-deep)}
+
+/* ── Buttons */
+.btn{display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:10px 24px;
+  font-family:var(--serif); font-weight:600; font-size:15px; letter-spacing:.12em; text-transform:uppercase;
+  border:1px solid var(--mauve-deep); background:transparent; color:var(--mauve-deep); text-decoration:none; cursor:pointer;
+  transition:background .2s, color .2s}
+.btn:hover{background:var(--blush)}
+.btn.primary{background:var(--mauve-deep); color:var(--paper)}
+.btn.primary:hover{background:#7A4F60}
+.btn.wide{width:100%}
+.btn[aria-disabled="true"],.btn:disabled{opacity:.45; pointer-events:none}
+.btn-row{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:16px}
+.btn-row .btn{min-height:46px; padding:8px 18px; font-size:14px}
+:focus-visible{outline:2px solid var(--mauve-deep); outline-offset:3px}
+
+/* ── Sections */
+section{padding:44px 0 52px; text-align:center}
+.shell{display:block; width:92px; height:auto; margin:0 auto 4px; mix-blend-mode:multiply}
+.sub{margin:-10px 0 24px; font-style:italic; font-size:21px; color:var(--ink-soft)}
+.label{font-weight:600; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 6px}
+h2{font-family:var(--script); font-weight:400; font-size:44px; line-height:1.1; margin:0 0 22px}
+.block{margin:0 0 34px}
+.block:last-child{margin-bottom:0}
+.block p{margin:0}
+.soon{font-style:italic; color:var(--ink-soft)}
+.notes{list-style:none; margin:34px 0 0; padding:0; font-style:italic; color:var(--ink-soft)}
+.notes li{margin:6px 0}
+.lede{margin:0 auto 24px; max-width:30em; color:var(--ink-soft); font-style:italic}
+
+/* ── RSVP card */
+.card{background:var(--paper); border:1px solid var(--mauve); outline:1px solid var(--mauve); outline-offset:-7px; padding:clamp(24px,6vw,34px) clamp(18px,5vw,28px); text-align:left}
+.field{margin:0 0 22px; border:0; padding:0; min-width:0}
+.lbl{display:block; font-weight:600; font-size:19px; margin:0 0 6px; padding:0; color:var(--ink)}
+.opt{font-weight:500; font-style:italic; color:var(--ink-soft); font-size:16px}
+input[type=text],input[type=password],select,textarea{width:100%; font-family:var(--serif); font-weight:500; font-size:19px; color:var(--ink); background:var(--cream);
+  border:0; border-bottom:1px solid var(--mauve); border-radius:0; padding:12px 12px; -webkit-appearance:none; appearance:none}
+input[type=text]:focus,input[type=password]:focus,select:focus,textarea:focus{outline:none; border-bottom-color:var(--mauve-deep); box-shadow:0 1px 0 var(--mauve-deep)}
+textarea{min-height:96px; resize:vertical}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--mauve-deep) 50%),linear-gradient(135deg,var(--mauve-deep) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%; background-size:6px 6px; background-repeat:no-repeat}
+::placeholder{color:#A69A9E; font-style:italic}
+.choices{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.choice{position:relative}
+.choice input{position:absolute; opacity:0; inset:0; margin:0; cursor:pointer}
+.choice span{display:flex; align-items:center; justify-content:center; text-align:center; min-height:56px; padding:8px; line-height:1.25;
+  border:1px solid var(--mauve); background:var(--cream); font-size:19px; transition:background .2s}
+.choice input:checked + span{background:var(--blush); border-color:var(--mauve-deep); box-shadow:inset 0 0 0 1px var(--mauve-deep)}
+.choice input:focus-visible + span{outline:2px solid var(--mauve-deep); outline-offset:3px}
+.err{color:#9B2C45; font-weight:600; margin:14px 0 0; text-align:center}
+.done{text-align:center}
+.done h3{font-family:var(--script); font-weight:400; font-size:44px; margin:0 0 4px}
+.done p{margin:0; color:var(--ink-soft); font-style:italic}
+.demo{font-size:15px; font-style:italic; background:#F6EBCD; padding:8px 12px; margin:22px 0 0; text-align:center}
+.hp{position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden}
+.hidden{display:none !important}
+
+footer{text-align:center; padding:12px 26px 56px; color:var(--ink-soft); font-style:italic}
+footer .sig{font-family:var(--script); font-style:normal; font-size:30px; color:var(--ink); display:block; margin-top:2px}
+footer a{color:var(--mauve-deep); font-style:normal; font-size:15px; letter-spacing:.12em; text-transform:uppercase}
+
+/* ── Gentle entrance */
+@keyframes rise{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+.invite > *{animation:rise .9s ease-out both}
+.invite > *:nth-child(2){animation-delay:.12s} .invite > *:nth-child(3){animation-delay:.24s}
+.invite > *:nth-child(4){animation-delay:.3s}  .invite > *:nth-child(5){animation-delay:.42s}
+.invite > *:nth-child(n+6){animation-delay:.55s}
+@media (prefers-reduced-motion: reduce){
+  .invite > *{animation:none !important}
+  html{scroll-behavior:auto}
+}
+
+/* ── Admin */
+.stats{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+.stat{background:var(--paper); border:1px solid rgba(185,138,154,.5); padding:16px 10px}
+.stat b{display:block; font-weight:600; font-size:38px; line-height:1}
+.stat span{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft)}
+.row{display:grid; grid-template-columns:1fr auto; gap:2px 12px; padding:14px 0; border-top:1px solid rgba(185,138,154,.35); text-align:left}
+.row:first-child{border-top:0}
+.row .name{font-weight:600}
+.tag{font-size:12px; font-weight:600; letter-spacing:.12em; padding:1px 8px; margin-left:6px; vertical-align:2px}
+.tag.yes{background:var(--blush)} .tag.no{background:#ECE7E2}
+.row .note{grid-column:1/-1; font-style:italic; color:var(--ink-soft)}
+.linkbtn{font:inherit; font-size:15px; background:none; border:0; padding:0; color:var(--mauve-deep); text-decoration:underline; cursor:pointer}
+
+footer .mono{display:block; margin:0 auto 6px; width:170px; height:auto; mix-blend-mode:multiply}
+footer p{margin:0 0 8px}
+
+/* readability polish */
+h1,h2,h3,.tagline,.sub,.lede,.hosts,.done p,.facts p{text-wrap:balance}
+.opt{display:block; font-size:16px; margin-top:1px}
+.invite .btn-row{max-width:420px; margin-left:auto; margin-right:auto}
+.invite .btn-row .btn{flex:1 1 150px}
+.invite .btn-row .btn{white-space:nowrap; letter-spacing:.08em; padding:8px 12px}
+
+/* ── Invitation hierarchy: key facts are the figures, connectors are subtext */
+.invite .lead{font-weight:600; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin:6px 0 0; line-height:1.7}
+.invite .celebrating{font-size:18px; color:var(--ink-soft); margin:6px 0 0}
+.invite .honoree{font-family:var(--serif); font-weight:600; font-size:clamp(24px,7vw,40px); line-height:1.15; letter-spacing:.12em; color:var(--ink); margin:4px 0 0}
+.invite .tagline{font-size:clamp(28px,8.4vw,42px); margin:8px 0 0; line-height:1.2}
+.facts .key{color:var(--ink)}
+.facts .date{font-size:clamp(23px,6.4vw,27px); font-weight:600}
+.facts #time{font-size:clamp(21px,5.8vw,24px)}
+.facts .addr p{font-size:clamp(20px,5.6vw,23px); line-height:1.35}
+.facts .subtext{font-style:italic; font-size:17px; color:var(--ink-soft)}
+.facts .venue{margin:18px 0 2px}
+.facts .hosts{margin-top:18px}
+
+.invite .notes{list-style:none; margin:26px auto 0; padding:14px 18px; max-width:30em; background:var(--paper); border:1px solid rgba(185,138,154,.45);
+  font-style:italic; font-size:18px; line-height:1.45; color:var(--ink); text-wrap:balance}
+
+/* ── Date lockup: MONTH / WEEKDAY | big day | YEAR / time */
+.datelock{max-width:340px; margin:4px auto 0; color:var(--ink)}
+.datelock p{margin:0}
+.dl-month{font-weight:600; font-size:15px; letter-spacing:.34em; padding-left:.34em; text-transform:uppercase; margin-bottom:6px !important}
+.dl-row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center}
+.dl-side{border-top:1px solid var(--mauve); border-bottom:1px solid var(--mauve); padding:7px 0 6px .24em;
+  font-weight:600; font-size:13.5px; letter-spacing:.24em; text-transform:uppercase; line-height:1.3}
+.dl-day{font-weight:500; font-size:66px; line-height:.95; padding:0 18px 4px; font-variant-numeric:lining-nums; font-feature-settings:"lnum" 1}
+.dl-time{font-size:21px !important; margin-top:10px !important}
+.facts, .datelock, .sub, .done{font-variant-numeric:lining-nums; font-feature-settings:"lnum" 1}
+
+/* ── Airier invitation, details section mirrors the card back */
+.invite{padding:30px 0 44px}
+.invite .facts{margin-top:30px}
+.facts .venue{margin:26px 0 2px}
+.facts .town{font-size:clamp(20px,5.6vw,23px)}
+.facts .hosts{margin-top:24px}
+.invite .cta{margin-top:36px}
+.details{padding-top:36px}
+.details .btn-row{max-width:420px; margin:22px auto 0}
+.details .btn-row .btn{flex:1 1 150px; white-space:nowrap; letter-spacing:.08em; padding:8px 12px}
+.details .notes{list-style:none; margin:34px auto 0; padding:14px 18px; max-width:30em; background:var(--paper); border:1px solid rgba(185,138,154,.45);
+  font-style:italic; font-size:18px; line-height:1.45; color:var(--ink); text-wrap:balance}
+
+/* ── Spacing system: one rhythm for the whole page ───────────────────── */
+:root{ --gap: clamp(60px, 11vw, 84px); --gap-sm: clamp(34px, 7vw, 46px); }
+.garland{padding-top:clamp(8px, 2vw, 16px)}
+.invite{padding:clamp(24px, 6vw, 34px) 0 0}
+.painting{margin:var(--gap-sm) -16px 0}
+main > section{padding:0; margin:var(--gap) 0 0}
+main > section.details{margin-top:var(--gap-sm)}
+main > section .shell{margin-bottom:6px}
+main > section h2{margin-bottom:18px}
+.details .facts{margin-top:0}
+footer{padding:var(--gap) 26px clamp(40px, 8vw, 56px)}
+/* larger screens: let the painting breathe a little wider than the text column */
+@media (min-width: 720px){
+  .painting{margin-left:-90px; margin-right:-90px}
+}
+main > section.details{padding-top:0}
+@media (min-width: 720px){
+  .invite .lead{font-size:14px}
+  .invite .celebrating{font-size:20px}
+  .invite .honoree{font-size:46px}
+  .invite .tagline{font-size:46px}
+  .datelock{max-width:380px}
+  .dl-month{font-size:16px}
+  .dl-side{font-size:14.5px}
+  .dl-day{font-size:76px}
+  .dl-time{font-size:23px !important}
+  .facts .town, .facts .addr p{font-size:24px}
+  .facts .subtext{font-size:18px}
+}
+
+/* ── Traditional date line */
+.facts .date{font-weight:600; font-size:clamp(23px,6.4vw,27px); line-height:1.3}
+.facts .time{font-size:clamp(21px,5.8vw,24px); margin-top:2px}
+@media (min-width: 720px){ .facts .date{font-size:30px} .facts .time{font-size:25px} }
+
+/* ── Sage accents ───────────────────────────────────────────────────── */
+:root{ --sage:#A3AE8A; --sage-deep:#66745A; --sage-mist:#ECEFE4; --hydrangea:#A7AEDB; }
+.invite .lead{color:var(--sage-deep)}
+main > section h2, .details h2{color:var(--sage-deep)}
+.btn{border-color:var(--sage-deep); color:var(--sage-deep)}
+.btn:hover{background:var(--sage-mist)}
+.btn.primary{border-color:var(--mauve-deep); background:var(--mauve-deep); color:var(--paper)}
+.btn.primary:hover{background:#7A4F60}
+.small-link a, footer a{color:var(--sage-deep)}
+.details .notes, .invite .notes{background:var(--sage-mist); border-color:var(--sage)}
+.card{border-color:var(--sage); outline-color:var(--sage)}
+input[type=text],input[type=password],select,textarea{border-bottom-color:var(--sage)}
+input[type=text]:focus,input[type=password]:focus,select:focus,textarea:focus{border-bottom-color:var(--sage-deep); box-shadow:0 1px 0 var(--sage-deep)}
+.choice span{border-color:var(--sage)}
+.choice input:checked + span{background:var(--sage-mist); border-color:var(--sage-deep); box-shadow:inset 0 0 0 1px var(--sage-deep)}
+:focus-visible{outline-color:var(--sage-deep)}
+/* host portal */
+.stat{background:var(--sage-mist); border-color:var(--sage)}
+.tag.yes{background:var(--sage-mist)}
+.tabs button{border-color:var(--sage)}
+.tabs button[aria-selected="true"]{background:var(--sage-deep); border-color:var(--sage-deep)}
+.list{border-color:var(--sage)}
+.linkbtn{color:var(--sage-deep)}
+.invite .tagline{margin-top:14px}
+@media (min-width:720px){ .invite .tagline{margin-top:16px} }
