@@ -21,7 +21,7 @@ window.SHOWER = {
   addressLines: ["7455 Fenwick Place", "St. Andrew's Country Club", "Boca Raton, Florida 33496"],
   mapQuery:     "7455 Fenwick Place, Boca Raton, FL 33496",
 
-  rsvpBy:      "2026-12-26",
+  rsvpBy:      "2026-12-19",
   registryUrl: "https://my.babylist.com/abbey-matthews",
 
   notes: [
